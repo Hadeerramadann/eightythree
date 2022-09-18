@@ -1,0 +1,6 @@
+*system should be run by run this commands :
+-> php artisan maigrate
+->php artisan serve
+_______________________________________________
+*to run the tests
+->php artisan test
