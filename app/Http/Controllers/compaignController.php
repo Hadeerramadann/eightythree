@@ -18,6 +18,7 @@ class compaignController extends Controller
     public function index()
     {
         $compaign=campaign::all();
+        
         return view('show', compact('compaign'));
     }
 

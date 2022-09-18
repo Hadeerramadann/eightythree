@@ -1,6 +1,7 @@
 @inject('request', 'Illuminate\Http\Request')
 @extends('index')
 @section('content')
+
 <div class="card">
             <div class="card-header">
                 <h3 class="page-title d-inline">All compaigns</h3>
@@ -69,9 +70,42 @@
                                           
                                        </td>
                                        <td>
-                                          <a href="{{ route('show_images', ['compaign_id' => $compaigns->id]) }}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
+                                          <!-- <a href="{{ route('show_images', ['compaign_id' => $compaigns->id]) }}" class="btn btn-warning"><i class="fa fa-eye"></i></a> -->
                                           
+                                          <button type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-eye"></i></button>
+                                          
+                                        <!-- Modal -->
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
 
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{{ $compaigns->name}} images</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                @foreach ($compaigns->image as  $key=>$imge)
+                                                            @php
+                                                                $key += 1;
+                                                            @endphp
+                                                        <div class="col-3">
+                                                            <img src="{{asset('content_images/'.$imge->name)}}"  alt=""height="100px" width="100px">
+                                                        </div>
+                                                        @endforeach
+                                                        </div>
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                                </div>
+                                            </div>
                                        </td>
                                        <td>
                                          <a href="{{ route('edit', ['compaign_id' => $compaigns->id]) }}" class="btn btn-info">update</a>
