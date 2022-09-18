@@ -1,4 +1,6 @@
 *system should be run by run this commands :
+->composer install
+->composer update 
 -> php artisan maigrate
 ->php artisan serve
 _______________________________________________
