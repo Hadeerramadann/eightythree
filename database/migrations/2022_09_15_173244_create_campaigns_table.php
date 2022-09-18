@@ -16,12 +16,12 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('from');
-            $table->date('to');
-            $table->float('total',5,2);
-            $table->float('daily_budget',5,2);
+            $table->date('from')->nullable();
+            $table->date('to')->nullable();
+            $table->float('total',5,2)->nullable();
+            $table->float('daily_budget',5,2)->nullable();
             
-            $table->string('_token');
+            $table->string('_token')->nullable();
             
             $table->timestamps();
         });
